@@ -10,7 +10,6 @@
 	</parent>
 	<groupId>com.apigateway</groupId>
 	<artifactId>APIGateway</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>APIGateway</name>
 	<description>Creating API Gateway for Microservices Tutorial Project</description>
