@@ -28,6 +28,6 @@ jobs:
         run: |
           cd HotelService
           ls -l
-          mvn test -e
+          mvn test -X
 
 
