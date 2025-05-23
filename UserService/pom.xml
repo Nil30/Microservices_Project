@@ -10,7 +10,6 @@
 	</parent>
 	<groupId>com.userservice</groupId>
 	<artifactId>UserService</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>UserService</name>
 	<description>Creating User Project for Microservices tutorial</description>
 	<url/>
@@ -113,6 +112,7 @@
   </dependencyManagement>
 
 	<build>
+		<finalName>UserService</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
