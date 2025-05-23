@@ -11,7 +11,7 @@ name: Buiding Spring Boot Project
 on:
   push:
     branches:
-      - master
+      - master/APIGateway
 
 jobs:
   build:
