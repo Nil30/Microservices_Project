@@ -23,9 +23,15 @@ jobs:
       - name: Check directory structure at root
         run: ls -l
 
-      - name: Check directory structure inside APIGateway and Build Jar File
+      - name: Changed directory to APIGateway and Build Jar File
         run: |
           cd APIGateway
+          ls -l
+          mvn clean install
+
+      - name: Changed directory to HotelService and Build Jar File
+        run: |
+          cd HotelServiceW
           ls -l
           mvn clean install
 
