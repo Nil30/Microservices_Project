@@ -21,5 +21,11 @@ jobs:
           distribution: 'temurin'
       
       - name: Check directory structure
-        run: ls -l
-    
+        run: ls -l 
+
+      - name: Check directory structure
+        run: cd APIGateway
+
+      - name: Check directory structure
+        run: ls -l 
+        
