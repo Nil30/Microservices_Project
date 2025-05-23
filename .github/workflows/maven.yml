@@ -23,17 +23,7 @@ jobs:
       - name: Check directory structure at root
         run: ls -l
 
-      - name: Changing directory to APIGateway and Build Jar File
-        run: |
-          cd APIGateway
-          mvn clean install
-
-      - name: Changing directory to Service Registry and Build Jar File
-        run: |
-          cd ServiceRegistry
-          mvn clean install
-
       - name: Changing directory to User Service and Build Jar File
         run: |
           cd UserService
-          mvn clean install
+          mvn clean test -X
