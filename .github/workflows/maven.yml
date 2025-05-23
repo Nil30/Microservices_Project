@@ -28,11 +28,6 @@ jobs:
           cd APIGateway
           mvn clean install
 
-      - name: Changing directory to Rating Service and Build Jar File
-        run: |
-          cd RatingService
-          mvn clean install
-          
       - name: Changing directory to Service Registry and Build Jar File
         run: |
           cd ServiceRegistry
