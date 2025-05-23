@@ -23,11 +23,6 @@ jobs:
       - name: Check directory structure at root
         run: ls -l
 
-      - name: Changed directory to APIGateway and Build Jar File
-        run: |
-          cd APIGateway
-          ls -l
-          mvn clean install
 
       - name: Changed directory to HotelService and Build Jar File
         run: |
