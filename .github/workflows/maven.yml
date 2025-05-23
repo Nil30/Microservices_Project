@@ -31,7 +31,7 @@ jobs:
 
       - name: Changed directory to HotelService and Build Jar File
         run: |
-          cd HotelServiceW
+          cd HotelService
           ls -l
           mvn clean install
 
