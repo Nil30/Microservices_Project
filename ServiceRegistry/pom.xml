@@ -10,7 +10,6 @@
 	</parent>
 	<groupId>com.serviceregistry</groupId>
 	<artifactId>ServiceRegistry</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>ServiceRegistry</name>
 	<description>This is project to implement Service Registry</description>
 	<url/>
@@ -59,6 +58,7 @@
 	</dependencyManagement>
 
 	<build>
+		<finalName>ServiceRegistry</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
