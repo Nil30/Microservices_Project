@@ -24,10 +24,9 @@ jobs:
         run: ls -l
 
 
-      - name: Changed directory to HotelService and Build Jar File
+      - name: Changed directory to APIGateway and Build Jar File
         run: |
-          cd HotelService
-          ls -l
-          mvn test -X
+          cd APIGateway
+          mvn clean install
 
 
