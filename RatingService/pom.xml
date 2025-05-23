@@ -10,7 +10,6 @@
 	</parent>
 	<groupId>com.ratingservice</groupId>
 	<artifactId>RatingService</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>RatingService</name>
 	<description>Creating Rating Service Project for Microservices tutorial</description>
 	<url/>
@@ -78,6 +77,7 @@
 
 
 	<build>
+		<finalName>RatingService</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
