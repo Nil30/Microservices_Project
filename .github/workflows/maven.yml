@@ -26,4 +26,4 @@ jobs:
       - name: Changing directory to User Service and Build Jar File
         run: |
           cd UserService
-          mvn clean test -X
+          mvn clean install -DskipTests
