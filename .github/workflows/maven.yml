@@ -1,24 +1,32 @@
-# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
-
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
-name: Buiding Spring Boot Project
+name: Build All Maven Projects
 
 on:
   push:
     branches:
-      - master/APIGateway
+      - master
 
 jobs:
-  build:
+  discover-folders:
     runs-on: ubuntu-latest
-
+    outputs:
+      folders: ${{ steps.set-matrix.outputs.folders }}
     steps:
-      - name: Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Find all project folders containing pom.xml
+        id: set-matrix
+        run: |
+          echo "::set-output name=folders::$(find . -name 'pom.xml' -printf '%h\n' | jq -R . | jq -s .)"
+
+  build-projects:
+    needs: discover-folders
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        folder: ${{ fromJson(needs.discover-folders.outputs.folders) }}
+    steps:
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Set up JDK 17
@@ -27,5 +35,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Build JAR
-        run: mvn clean install
+      - name: Build Maven project
+        run: |
+          cd ${{ matrix.folder }}
+          mvn clean install
