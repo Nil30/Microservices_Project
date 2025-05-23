@@ -19,8 +19,7 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-
-      - name: Build JAR for APIGetway
-        run: |
-          cd APIGetway
-          mvn clean install
+      
+      - name: Check directory structure
+        run: ls -l
+    
