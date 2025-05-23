@@ -1,4 +1,5 @@
-name: Build All Maven Projects
+
+name: Buiding Spring Boot Project
 
 on:
   push:
@@ -6,27 +7,11 @@ on:
       - master
 
 jobs:
-  discover-folders:
+  build:
     runs-on: ubuntu-latest
-    outputs:
-      folders: ${{ steps.set-matrix.outputs.folders }}
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
 
-      - name: Find all project folders containing pom.xml
-        id: set-matrix
-        run: |
-          echo "::set-output name=folders::$(find . -name 'pom.xml' -printf '%h\n' | jq -R . | jq -s .)"
-
-  build-projects:
-    needs: discover-folders
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        folder: ${{ fromJson(needs.discover-folders.outputs.folders) }}
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Set up JDK 17
@@ -35,7 +20,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Build Maven project
+      - name: Build JAR for APIGetway
         run: |
-          cd ${{ matrix.folder }}
+          cd APIGetway
           mvn clean install
