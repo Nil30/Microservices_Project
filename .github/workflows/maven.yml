@@ -20,12 +20,11 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       
-      - name: Check directory structure
-        run: ls -l 
+      - name: Check directory structure at root
+        run: ls -l
 
-      - name: Check directory structure
-        run: cd APIGateway
+      - name: Check directory structure inside APIGateway
+        run: |
+          cd APIGateway
+          ls -l
 
-      - name: Check directory structure
-        run: ls -l 
-        
