@@ -11,6 +11,7 @@
 	<groupId>com.hotelservice</groupId>
 	<artifactId>HotelService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>HotelService</name>
 	<description>Creating HotelService Project for Microservices tutorial</description>
 	<url/>
@@ -80,6 +81,7 @@
   </dependencyManagement>
   
 	<build>
+		<finalName>HotelService</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
