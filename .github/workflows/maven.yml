@@ -1,5 +1,4 @@
-
-name: Buiding Spring Boot Project
+name: Building Spring Boot Projects
 
 on:
   push:
@@ -19,14 +18,18 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      
+
       - name: Check directory structure at root
         run: ls -l
 
-
-      - name: Changed directory to APIGateway and Build Jar File
+      - name: Loop through directories and build projects
         run: |
-          cd APIGateway
-          mvn clean install
-
-
+          for dir in */; do
+            if [ -f "$dir/pom.xml" ]; then
+              echo "Processing $dir"
+              cd "$dir"
+              ls -l
+              mvn clean install
+              cd ..
+            fi
+          done
